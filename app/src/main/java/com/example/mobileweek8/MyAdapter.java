@@ -37,16 +37,25 @@ public class MyAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         // Create a new view for item position "position" (param) by inflating from a layout resource
         View generatedView;
-        if (convertView == null)
-            generatedView = LayoutInflater.from(context).inflate(R.layout.list_item , parent, false);
-        else
+        ViewHolder holder;
+        if (convertView == null) {
+            generatedView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+            holder = new ViewHolder();
+            holder.tv_name = generatedView.findViewById(R.id.tv_studentname);
+            generatedView.setTag(holder);
+        } else {
             generatedView = convertView;
+            holder = (ViewHolder) generatedView.getTag();
+        }
         // Get the datasource index position
         String studentName = studentsName.get(position);
         // Fill this view with the data
-        TextView tv_name = generatedView.findViewById(R.id.tv_studentname);
-        tv_name.setText(studentName);
+        holder.tv_name.setText(studentName);
         // Return the finalized view
         return generatedView;
+    }
+
+    class ViewHolder {
+        TextView tv_name;
     }
 }
