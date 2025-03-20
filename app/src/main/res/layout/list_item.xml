@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textColor="@color/design_default_color_primary"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:text="to be filled"/>
 
 </LinearLayout>
