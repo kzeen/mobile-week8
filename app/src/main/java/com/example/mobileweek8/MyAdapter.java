@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -37,9 +38,11 @@ public class MyAdapter extends BaseAdapter {
         // Create a new view for item position "position" (param) by inflating from a layout resource
         View generatedView = LayoutInflater.from(context).inflate(R.layout.list_item , parent, false);
         // Get the datasource index position
+        String studentName = studentsName.get(position);
         // Fill this view with the data
+        TextView tv_name = generatedView.findViewById(R.id.tv_studentname);
+        tv_name.setText(studentName);
         // Return the finalized view
-
         return generatedView;
     }
 }
