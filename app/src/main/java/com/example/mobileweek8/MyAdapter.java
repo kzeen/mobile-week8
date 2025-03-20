@@ -36,7 +36,11 @@ public class MyAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Create a new view for item position "position" (param) by inflating from a layout resource
-        View generatedView = LayoutInflater.from(context).inflate(R.layout.list_item , parent, false);
+        View generatedView;
+        if (convertView == null)
+            generatedView = LayoutInflater.from(context).inflate(R.layout.list_item , parent, false);
+        else
+            generatedView = convertView;
         // Get the datasource index position
         String studentName = studentsName.get(position);
         // Fill this view with the data
